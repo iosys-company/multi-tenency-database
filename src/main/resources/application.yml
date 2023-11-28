@@ -8,3 +8,13 @@ mybatis:
         map-underscore-to-camel-case: true
         default-fetch-size: 100
         default-statement-timeout: 30
+
+# Jsp
+spring:
+    profiles:
+        include:
+            - teamssvc
+    mvc:
+        view:
+            prefix: /WEB-INF/views/
+            suffix: .jsp
