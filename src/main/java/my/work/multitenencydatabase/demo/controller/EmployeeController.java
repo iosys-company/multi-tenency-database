@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
 import my.work.multitenencydatabase.demo.domain.Employee;
+import my.work.multitenencydatabase.demo.dto.EmployeeDto;
 import my.work.multitenencydatabase.demo.service.EmployeeService;
 
 @RequiredArgsConstructor
@@ -20,6 +21,11 @@ public class EmployeeController {
     @PostMapping
     public ResponseEntity<Employee> save(@RequestBody Employee employee) {
         return ResponseEntity.ok().body(employeeService.save(employee));
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<EmployeeDto> add(@RequestBody EmployeeDto employee) {
+        return ResponseEntity.ok().body(employeeService.add(employee));
     }
 
     @GetMapping

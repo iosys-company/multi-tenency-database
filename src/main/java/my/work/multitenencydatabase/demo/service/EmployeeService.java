@@ -2,6 +2,8 @@ package my.work.multitenencydatabase.demo.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -18,6 +20,12 @@ public class EmployeeService {
 
     public Employee save(Employee employee) {
         return employeeRepository.save(employee);
+    }
+
+    @Transactional
+    public EmployeeDto add(EmployeeDto employee) {
+        employeeMapper.insert(employee);
+        return employee;
     }
 
     public List<EmployeeDto> findAll() {

@@ -9,4 +9,6 @@ import my.work.multitenencydatabase.demo.dto.EmployeeDto;
 @Mapper
 public interface EmployeeMapper {
     List<EmployeeDto> findAll();
+
+    int insert(EmployeeDto employeeDto);
 }

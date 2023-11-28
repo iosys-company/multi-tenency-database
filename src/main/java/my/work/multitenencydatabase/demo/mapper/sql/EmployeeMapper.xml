@@ -6,4 +6,7 @@
     <select id="findAll" resultType="my.work.multitenencydatabase.demo.dto.EmployeeDto">
         SELECT * FROM employee
     </select>
+    <insert id="insert" parameterType="my.work.multitenencydatabase.demo.dto.EmployeeDto">
+        INSERT INTO employee (name) VALUES (#{name})
+    </insert>
 </mapper>
