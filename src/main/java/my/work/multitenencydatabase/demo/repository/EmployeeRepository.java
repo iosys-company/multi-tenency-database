@@ -1,9 +1,27 @@
 package my.work.multitenencydatabase.demo.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
 
-import my.work.multitenencydatabase.demo.domain.Employee;
+import lombok.RequiredArgsConstructor;
+import my.work.multitenencydatabase.demo.dto.EmployeeDto;
+import my.work.multitenencydatabase.demo.mapper.EmployeeMapper;
 
-public interface EmployeeRepository extends JpaRepository<Employee, Long> {
+import java.util.List;
 
+// @RequiredArgsConstructor
+@Repository
+public class EmployeeRepository {
+
+    private final EmployeeMapper mapper;
+
+    public EmployeeRepository(@Qualifier("tenantSqlSession") SqlSession sqlSession) {
+        mapper = sqlSession.getMapper(EmployeeMapper.class);
+    }
+
+    public List<EmployeeDto> findAll() {
+        List<EmployeeDto> list = mapper.findAll();
+        return list;
+    }
 }
