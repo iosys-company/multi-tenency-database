@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+    <bean id="teamsService" class="kr.teams.web.service.TeamsService">
+        <property name="licenseKey" value="123456789012345678901234" />
+        <property name="jdbcTemplate" ref="jdbcTemplate" />
+        <property name="serviceDomain" value="localhost" />
+        <property name="servicePort" value="8080" />
+        <property name="encoding" value="UTF-8"/>
+        <property name="protocol" value="HTTP"/>
+        
+        <property name="schcd" value="BP2022-IOSYS" />
+        <property name="cspcd" value="BP2022-IOSYS" />
+        <property name="site" value="EC" />
+        <property name="dbVendor" value="MARIADB" />
+         
+        <property name="teamsdata" value="Z:/ECLOUD-EXAM"/>
+        
+        <property name="apiIFUrl" value="" />
+        <property name="apiService" value="/exam-center2/teams/core/api.elgx" />
+        <property name="databaseIFUrl" value="/exam-center2/teams/core/db.elgx" />
+        <property name="fileUploadIFUrl" value="/exam-center2/teams/core/upload.elgx" />
+        <property name="fileDownloadIFUrl" value="/exam-center2/teams/core/download.elgx" />
+        
+        <property name="teamsDataUrl" value="http://dev1.teams.kr/teamsdata/ECLOUD-EXAM/" />
+        <property name="installUrl" value="http://dev1.teams.kr/teamsdata/ECLOUD-EXAM/install/EarlGae_Install" />
+        <property name="installUrlSub" value="http://dev1.teams.kr/teamsdata/ECLOUD-EXAM/install" />
+        
+        <property name="refUrl">
+            <map>
+            	<entry key="HWP_DIVIDER_APIURL" value="/exam-center2/product/divider/parse.elgx" />
+            </map>
+		</property>
+        
+        <!--  기본 템플릿 설정 -->
+        <property name="template" value="/template/default_20200609.tlf" />
+        <property name="templatedap" value="/template/common/answer/AnswersExplan.tlf" />
+        <property name="templateid" value="" />	
+    </bean> 
+</beans>
