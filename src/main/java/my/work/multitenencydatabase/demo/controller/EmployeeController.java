@@ -1,6 +1,7 @@
 package my.work.multitenencydatabase.demo.controller;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,5 +20,10 @@ public class EmployeeController {
     @PostMapping
     public ResponseEntity<Employee> save(@RequestBody Employee employee) {
         return ResponseEntity.ok().body(employeeService.save(employee));
+    }
+
+    @GetMapping
+    public ResponseEntity<?> findAll() {
+        return ResponseEntity.ok().body(employeeService.findAll());
     }
 }
