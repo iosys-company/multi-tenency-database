@@ -33,3 +33,4 @@ build/
 .vscode/
 logs/teasm-web-.2023-11-28.log
 logs/teasm-web.log
+logs/teasm-web.log
