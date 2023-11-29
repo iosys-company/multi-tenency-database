@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import my.work.multitenencydatabase.security.domain.User;
+import my.work.multitenencydatabase.tenant.TenantContext;
 
 @Controller
 @RequestMapping("/dashboard")
@@ -22,6 +23,7 @@ public class DashBoardController {
         model.addAttribute("username", user.getFirstName() + " " + user.getLastName());
         // 현시 시스템 YYYY-MM-DD HH:MM:SS 형태로 출력한다.
         model.addAttribute("systemTime", new java.util.Date());
+        model.addAttribute("tenant", TenantContext.getCurrentTenant());
         model.addAttribute("message", "환영합니다.");
         return "dashboard";
     }

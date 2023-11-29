@@ -12,6 +12,7 @@
     <body>
         <h1>Dashboard</h1>
         <p>Dashboard page</p>
+        <p>접속DB : ${tenant}</p>
         <p>${username}님 ${message} (${systemTime})</p>
     </body>
     </html>
