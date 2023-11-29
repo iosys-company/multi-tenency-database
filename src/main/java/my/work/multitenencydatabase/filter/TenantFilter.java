@@ -7,12 +7,9 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-
-import my.work.multitenencydatabase.tenant.TenantContext;
 
 @Component
 @Order(1)
@@ -21,14 +18,15 @@ public class TenantFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
-        HttpServletRequest servletRequest = ((HttpServletRequest) request);
-        String tenant = servletRequest.getHeader("X-TenantID");
-        TenantContext.setCurrentTenant(tenant);
-        try {
-            chain.doFilter(request, response);
-        } finally {
-            TenantContext.setCurrentTenant("");
-        }
+        // HttpServletRequest servletRequest = ((HttpServletRequest) request);
+        // String tenant = servletRequest.getHeader("X-TenantID");
+        // TenantContext.setCurrentTenant(tenant);
+        // try {
+        // chain.doFilter(request, response);
+        // } finally {
+        // TenantContext.setCurrentTenant("");
+        // }
+        chain.doFilter(request, response);
     }
 
 }

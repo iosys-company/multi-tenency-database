@@ -28,26 +28,32 @@ public class JwtService {
         return extractClaim(jwt, Claims::getSubject);
     }
 
+    public String extractTenant(String jwt) {
+        return extractClaim(jwt, Claims::getAudience);
+    }
+
     public <T> T extractClaim(String jwt, Function<Claims, T> claimsResolver) {
         final Claims claims = extractAllClaims(jwt);
         return claimsResolver.apply(claims);
     }
 
-    public String generateToken(UserDetails userDetails) {
-        return generateToken(Map.of(), userDetails);
+    public String generateToken(String tenant, UserDetails userDetails) {
+        return generateToken(tenant, Map.of(), userDetails);
     }
 
-    public String generateToken(Map<String, Object> extractClaims, UserDetails userDetails) {
-        return buildToken(new HashMap<>(), userDetails, jwtExpiration);
+    public String generateToken(String tenant, Map<String, Object> extractClaims, UserDetails userDetails) {
+        return buildToken(tenant, extractClaims, userDetails, jwtExpiration);
     }
 
     private String buildToken(
+            String tenant,
             Map<String, Object> extraClaims,
             UserDetails userDetails,
             long expiration) {
         return Jwts
                 .builder()
                 .setClaims(extraClaims)
+                .setAudience(tenant)
                 .setSubject(userDetails.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + expiration))

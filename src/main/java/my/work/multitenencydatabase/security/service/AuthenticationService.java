@@ -30,7 +30,7 @@ public class AuthenticationService {
                                 .role(Role.USER)
                                 .build();
                 userRepository.save(user);
-                String jwtToken = jwtService.generateToken(user);
+                String jwtToken = jwtService.generateToken(registerRequest.getTenant(), user);
                 return AuthenticationResponse.builder()
                                 .token(jwtToken)
                                 .build();
@@ -42,7 +42,7 @@ public class AuthenticationService {
                                                 authenticationRequest.getEmail(),
                                                 authenticationRequest.getPassword()));
                 User user = userRepository.findByEmail(authenticationRequest.getEmail()).orElseThrow();
-                String jwtToken = jwtService.generateToken(user);
+                String jwtToken = jwtService.generateToken(authenticationRequest.getTenant(), user);
                 return AuthenticationResponse.builder()
                                 .token(jwtToken)
                                 .build();
