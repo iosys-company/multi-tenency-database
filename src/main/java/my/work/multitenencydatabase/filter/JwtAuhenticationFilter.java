@@ -52,7 +52,11 @@ public class JwtAuhenticationFilter extends OncePerRequestFilter {
                 }
             }
         }
-        filterChain.doFilter(request, response);
+        try {
+            filterChain.doFilter(request, response);
+        } finally {
+            TenantContext.setCurrentTenant("");
+        }
     }
 
 }
