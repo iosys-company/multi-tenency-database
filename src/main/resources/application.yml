@@ -1,20 +1,5 @@
-defaultTenent: tenant_1
-
-# mybatis mapper xml path
-# mybatis.mapper-locations=classpath:mappers/*.xml
-mybatis:
-    mapper-locations: classpath:/my/work/multitenencydatabase/demo/**/sql/*.xml
-    configuration:
-        map-underscore-to-camel-case: true
-        default-fetch-size: 100
-        default-statement-timeout: 30
-
-# Jsp
 spring:
     profiles:
+        active: local
         include:
-            - teamssvc
-    mvc:
-        view:
-            prefix: /WEB-INF/views/
-            suffix: .jsp
+            - local-teamssvc

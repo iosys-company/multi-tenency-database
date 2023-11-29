@@ -1,0 +1,24 @@
+teams:
+    licenseKey: 123456789012345678901234
+    serviceDomain: localhost
+    servicePort: 8080
+    encoding: UTF-8
+    protocol: HTTP
+    schcd: BP2022-IOSYS
+    cspcd: BP2022-IOSYS
+    site: EC
+    dbVendor: MARIADB
+    teamsdata: Z:/ECLOUD-EXAM
+    apiIFUrl: ""
+    apiService: "/exam-center2/teams/core/api.elgx"
+    databaseIFUrl: "/exam-center2/teams/core/db.elgx"
+    fileUploadIFUrl: "/exam-center2/teams/core/upload.elgx"
+    fileDownloadIFUrl: "/exam-center2/teams/core/download.elgx"
+    teamsDataUrl: "http://dev1.teams.kr/teamsdata/ECLOUD-EXAM/"
+    installUrl: "http://dev1.teams.kr/teamsdata/ECLOUD-EXAM/install/EarlGae_Install"
+    installUrlSub: "http://dev1.teams.kr/teamsdata/ECLOUD-EXAM/install"
+    refUrl:
+        HWP_DIVIDER_APIURL: "/exam-center2/product/divider/parse.elgx"
+    template: "/template/default_20200609.tlf"
+    templatedap: "/template/common/answer/AnswersExplan.tlf"
+    templateid: ""

@@ -14,9 +14,10 @@ public class HomeController {
     private TeamsService teamsService;
 
     @GetMapping("/")
-    public String hello() throws Exception {
-        String dd = teamsService.encode("test");
-        System.out.println(dd);
+    public String hello(Model model) throws Exception {
+        String encode = teamsService.encode("test");
+        System.out.println("출력=>" + encode);
+        model.addAttribute("message", encode);
         return "index";
     }
 
