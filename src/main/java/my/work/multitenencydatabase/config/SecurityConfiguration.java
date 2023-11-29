@@ -1,4 +1,4 @@
-package my.work.multitenencydatabase.security.config;
+package my.work.multitenencydatabase.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,6 +10,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import lombok.RequiredArgsConstructor;
+import my.work.multitenencydatabase.filter.JwtAuhenticationFilter;
 
 @Configuration
 @EnableWebSecurity

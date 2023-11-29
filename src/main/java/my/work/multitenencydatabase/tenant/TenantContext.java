@@ -1,4 +1,4 @@
-package my.work.multitenencydatabase.config;
+package my.work.multitenencydatabase.tenant;
 
 public class TenantContext {
 

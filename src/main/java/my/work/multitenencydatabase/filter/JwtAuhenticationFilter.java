@@ -1,4 +1,4 @@
-package my.work.multitenencydatabase.security.config;
+package my.work.multitenencydatabase.filter;
 
 import java.io.IOException;
 
@@ -17,6 +17,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.NonFinal;
+import my.work.multitenencydatabase.security.config.JwtService;
 
 @Component
 @RequiredArgsConstructor

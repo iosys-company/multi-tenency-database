@@ -1,4 +1,4 @@
-package my.work.multitenencydatabase.config;
+package my.work.multitenencydatabase.tenant;
 
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 import org.springframework.lang.Nullable;

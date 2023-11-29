@@ -1,6 +1,5 @@
 package my.work.multitenencydatabase.demo.controller;
 
-import org.apache.catalina.connector.Request;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;

@@ -1,4 +1,4 @@
-package my.work.multitenencydatabase.config;
+package my.work.multitenencydatabase.tenant;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;

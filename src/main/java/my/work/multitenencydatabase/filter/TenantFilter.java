@@ -1,4 +1,4 @@
-package my.work.multitenencydatabase.config;
+package my.work.multitenencydatabase.filter;
 
 import java.io.IOException;
 
@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+
+import my.work.multitenencydatabase.tenant.TenantContext;
 
 @Component
 @Order(1)
