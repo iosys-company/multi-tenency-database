@@ -16,6 +16,9 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
+		<slf4j.version>1.7.25</slf4j.version>
+		<log4j.version>2.11.0</log4j.version>
+		<kr.teams.version>6.7.1-SNAPSHOT</kr.teams.version>
 	</properties>
 	<repositories>
 		<repository>
@@ -67,12 +70,24 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-        <dependency>
-            <groupId>kr.teams</groupId>
-            <artifactId>teams-web</artifactId>
-            <version>6.7.1-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
+
+		<!-- TEAMS 공통서비스 -->
+		<dependency>
+			<groupId>kr.teams</groupId>
+			<artifactId>teams-web</artifactId>
+			<version>${kr.teams.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>kr.teams.hwp</groupId>
+					<artifactId>hwp-lib</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.pdfbox</groupId>
+					<artifactId>pdfbox</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>
@@ -80,9 +95,6 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<image>
-						<builder>paketobuildpacks/builder-jammy-base:latest</builder>
-					</image>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>

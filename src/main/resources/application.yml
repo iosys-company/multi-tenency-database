@@ -1,3 +1,5 @@
+defaultTenent: tenant_1
+
 spring:
     profiles:
         active: local
